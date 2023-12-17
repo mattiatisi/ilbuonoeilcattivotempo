@@ -22,17 +22,20 @@ var textArea;
 var form;
 
 function preload() {
-  mapImg = loadImage('../assets/Map.png');
-  pinIcon = loadImage('../assets/Icons/pin.png');
-  myData = loadJSON('data.json');
+  mapImg = loadImage("../assets/Map.png");
+  pinIcon = loadImage("../assets/Icons/pin.png");
+  myData = loadJSON("data.json");
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   sample = new SampleSystem();
   ab = 0;
-  while (mapImg.width / (windowWidth / ab) <= windowWidth + windowWidth / 8
-    || mapImg.height / (windowHeight / ab) <= windowHeight + windowHeight / 8) ++ab;
+  while (
+    mapImg.width / (windowWidth / ab) <= windowWidth + windowWidth / 8 ||
+    mapImg.height / (windowHeight / ab) <= windowHeight + windowHeight / 8
+  )
+    ++ab;
   wiW = windowWidth;
   wiH = windowHeight;
   imgW = mapImg.width;
@@ -47,39 +50,41 @@ function setup() {
   button1 = select("#openModal");
   moveToHalf = 0;
   justOnePin = 0;
-  textArea = document.getElementById('textId');
-  form = document.getElementById('formId');
+  textArea = document.getElementById("textId");
+  form = document.getElementById("formId");
 }
 
 function draw() {
   createCanvas(windowWidth, windowHeight);
   if (wiW != windowWidth || wiH != windowHeight) {
     while (nm <= 1) {
-      while (imgW / (windowWidth / ab) <= windowWidth + windowWidth / 8
-        || mapImg.height / (windowHeight / ab) <= windowHeight + windowHeight / 8) ++ab;
+      while (
+        imgW / (windowWidth / ab) <= windowWidth + windowWidth / 8 ||
+        mapImg.height / (windowHeight / ab) <= windowHeight + windowHeight / 8
+      )
+        ++ab;
       mapImg.resize(imgW / (windowWidth / ab), 0);
       ab = 0;
       ++nm;
     }
+  } else {
+    nm = 0;
   }
-  else { nm = 0; }
   button1.mousePressed(stateOne);
   searchMap(0, 0, 2, moveToHalf);
   sample.hoverText(mouseX - pinPosX, mouseY - pinPosY, moveToHalf);
 
-
-  form.addEventListener('submit',function(event){
+  form.addEventListener("submit", function (event) {
     //this event must be chreated when pressing the submit button.
     sample.createText(textArea.value);
-  
+
     //IMPORTANT: This are the values this will be uploaded to the json file
     // once the submit is pressed.
-    console.log(sample.text[sample.text.length-1]);
-    console.log(sample.samples[sample.samples.length-1].x);
-    console.log(sample.samples[sample.samples.length-1].y);
+    console.log(sample.text[sample.text.length - 1]);
+    console.log(sample.samples[sample.samples.length - 1].x);
+    console.log(sample.samples[sample.samples.length - 1].y);
   });
 }
-
 
 function stateOne() {
   moveToHalf = 1;
@@ -146,10 +151,10 @@ function searchMap(x, y, acel, half) {
 }
 
 function mousePressed() {
-    if (mouseX >= windowWidth / 2 && moveToHalf == 1 && justOnePin < 1) {
-      sample.create(mouseX - pinPosX, mouseY - pinPosY);
-      ++justOnePin;
-    }
+  if (mouseX >= windowWidth / 2 && moveToHalf == 1 && justOnePin < 1) {
+    sample.create(mouseX - pinPosX, mouseY - pinPosY);
+    ++justOnePin;
+  }
 }
 
 function keyTyped() {
