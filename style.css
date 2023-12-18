@@ -114,6 +114,7 @@ h1 {
 
 h2,
 h3 {
+  font-family: Replica Trial TT; 
   font-size: var(--heading);
   text-transform: uppercase;
   line-height: 1.1;
