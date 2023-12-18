@@ -6,7 +6,7 @@
   font-display: auto;
   /* or block, swap, fallback, optional */
   src: local("CircularStd-Book"),
-    url("../assets/Fonts/CircularStd-Book.woff") format("woff");
+    url("assets/Fonts/CircularStd-Book.woff") format("woff");
   /* will be preloaded */
   unicode-range: U+000-5FF;
   /* Latin glyphs */
@@ -19,7 +19,7 @@
   font-display: auto;
   /* or block, swap, fallback, optional */
   src: local("Replica Trial TT"),
-    url("..assets/Fonts/ReplicaTrialTT-Regular.woff") format("woff");
+    url("assets/Fonts/ReplicaTrialTT-Regular.woff") format("woff");
   /* will be preloaded */
   unicode-range: U+000-5FF;
   /* Latin glyphs */
