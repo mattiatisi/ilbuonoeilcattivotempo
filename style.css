@@ -167,6 +167,11 @@ a,
   font-size: var(--link);
 }
 
+a{
+font-family: CircularStd-Book;
+  
+}
+
 a:hover,
 .cta-link:hover {
   color: var(--main-color);
