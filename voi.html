@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     <script>
+           addEventListener("DOMContentLoaded", (event) => {
             //SET ELLIPSE CONTAINE HEIGHT
             let ellipseContainer = document.getElementById("ellipseContainer");
             console.log(ellipseContainer);
@@ -24,7 +25,7 @@
             console.log(ellipse1);
             let paragraph = document.getElementById("text");
             setHeightEllipseContainer(ellipseContainer, ellipse1, paragraph);
-    
+        });
 
         addEventListener("resize", (event) => {
             //SET ELLIPSE CONTAINE HEIGHT
