@@ -172,6 +172,10 @@ font-family: CircularStd-Book;
   
 }
 
+.border-wrapper a{
+font-family: CircularStd-Book;  
+}
+
 a:hover,
 .cta-link:hover {
   color: var(--main-color);
